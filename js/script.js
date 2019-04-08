@@ -4,8 +4,10 @@
 /* global $ */
 
 $("#search-button").click(function(){
+    var input = $('#search-term').val();
+    var searchURL = "https://api.giphy.com/v1/gifs/search?q="+input+"&rating=pg&api_key=dc6zaTOxFJmzC"
    $.ajax({
-        url: "https://api.giphy.com/v1/gifs/search?q=puppy&rating=pg&api_key=dc6zaTOxFJmzC",
+        url: searchURL,
         method: "GET",
         success: function(response) {
             $('body').append("<img src=" + response.data[0].images.original.url + ">");
